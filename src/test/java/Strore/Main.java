@@ -13,7 +13,7 @@ public class Main extends BasePage {
     private final By searchInput = By.xpath("//input[contains(@class,  'digi-instant-search')]");
     private final By searchButton = By.xpath("//button[contains(@class, 'btn')]");
     private final By firstProductLabel = By.xpath("//a[@class='digi-product__label']");
-    private final By addToCartButton = By.xpath("//button[@class='digi-product__button']");
+    private final By addToCartButton = By.xpath("//div[@class='digi-product__actions']");
     private final By goToCartButton = By.xpath("//div[text()='Корзина']");
 
     public Main (WebDriver driver) {
@@ -22,10 +22,10 @@ public class Main extends BasePage {
     public void searchForProduct(String productName) {
         WebElement searchField = wait.until(ExpectedConditions.visibilityOfElementLocated(searchInput));
         searchField.sendKeys(productName);
-        searchField.sendKeys(Keys.ENTER);
-        wait.until(ExpectedConditions.urlContains("search"));
-//        driver.findElement(searchInput).sendKeys(productName);
-//        click(driver.findElement(searchButton));
+       // searchField.sendKeys(Keys.ENTER);
+       // wait.until(ExpectedConditions.urlContains("search"));
+        driver.findElement(searchInput).sendKeys(productName);
+        click(driver.findElement(searchButton));
     }
     public String getFirstProductName() {
         wait.until(ExpectedConditions.textToBePresentInElementLocated(firstProductLabel,"iPhone"));
