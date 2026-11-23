@@ -1,4 +1,4 @@
-package practice;
+package practice.ShareLineRegistration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
